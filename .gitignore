@@ -1,0 +1,16 @@
+.vagrant
+venv
+.env
+.idea
+.DS_*
+__pycache__/
+*.py[cod]
+db.sqlite3*
+console/cert.pem*
+tags
+dhcpd.*
+0*.py
+test.py
+ignore_dir/
+
+
