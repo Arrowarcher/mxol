@@ -10,7 +10,7 @@ class CityDict(models.Model):
         verbose_name = "城市"
         verbose_name_plural = verbose_name
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -37,12 +37,12 @@ class CourseOrg(models.Model):
         #获取课程机构的教师数量
         return self.teacher_set.all().count()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
 class Teacher(models.Model):
-    org = models.ForeignKey(CourseOrg, verbose_name="所属机构",on_delete=models.SET_NULL)
+    org = models.ForeignKey(CourseOrg, verbose_name="所属机构",on_delete=models.CASCADE)
     name = models.CharField(max_length=50, verbose_name="教师名")
     work_years = models.IntegerField(default=0, verbose_name="工作年限")
     work_company = models.CharField(max_length=50, verbose_name="就职公司")
@@ -58,9 +58,9 @@ class Teacher(models.Model):
         verbose_name = "教师"
         verbose_name_plural = verbose_name
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
-    def get_course_nums(self):
-        return self.course_set.all().count()
+    # def get_course_nums(self):
+    #     return self.course_set.all().count()
 
