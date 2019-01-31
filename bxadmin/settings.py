@@ -30,6 +30,11 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+# 自定义的登录认证
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,6 +50,7 @@ INSTALLED_APPS = [
     'courses',
     'operation',
     'organization',
+    'captcha',
 ]
 
 AUTH_USER_MODEL = 'users.UserProfile'
@@ -133,3 +139,10 @@ USE_TZ = False  # false使用本地时间，否则会使用UTC的时间
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR), 'static']
+
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'Arrowarcher@qq.com'
+EMAIL_HOST_PASSWORD = 'nifxkmerlpcibhfc'
+EMAIL_USE_TLS = False
+EMAIL_FROM = 'Arrowarcher@qq.com'
